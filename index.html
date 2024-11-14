@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+              <h1>promises</h1>
+    <h1>This task output check console</h1>
+    <h3>
+      Task 1: Resolve a Promise with a Value <br>
+      Task 2: Reject a Promise with an Error <br>
+      Task 3: Chain Promises <br>
+      Task 4: Handle Promise Rejection
+    </h3>
+
+    <script>
+      // Task 1: Resolve a Promise with a Value
+      
+      const myPromise1 = new Promise((resolve, reject) => {
+        resolve("Promise resolved with a value");
+      });
+      myPromise1.then((value) => {
+        console.log(value);
+      });
+
+      // Task 2: Reject a Promise with an Error
+      const myPromise2 = new Promise((resolve, reject) => {
+        reject(new Error("Promise rejected with an error"));
+      });
+      myPromise2.catch((error) => {
+        console.log(error.message);
+      });
+
+      // Task 3: Chain Promises
+      const promise3 = new Promise((resolve, reject) => {
+        resolve(5);
+      });
+      promise3
+        .then((value) => {
+          console.log(value);
+          return value * 3;
+        })
+        .then((value) => {
+          console.log(value);
+        });
+
+      // Task 4: Handle Promise Rejection
+      const myPromise4 = new Promise((resolve, reject) => {
+        reject(new Error("Promise handling rejection"));
+      });
+      myPromise4
+        .then((str) => {
+          console.log(str);
+        })
+        .catch((error) => {
+          console.log("Caught error:", error.message);
+        });
+    </script>
+  </body>
+</html>
